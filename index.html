@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='style.css' rel='stylesheet'>
+    <title>WorldHost - Panel</title>
+</head>
+<script type="module">
+    const profilePic = document.getElementById('profile-pic');
+    const profileDropdown = document.getElementById('profile-dropdown');
+    profilePic.addEventListener('click', function () {
+        if (profileDropdown.style.opacity === '1') {
+            profileDropdown.style.maxHeight = null;    // Collapse the dropdown
+            profileDropdown.style.opacity = '0';       // Fade out
+        } else {
+            // If the dropdown is not visible (opacity = 0), expand it
+            profileDropdown.style.maxHeight = profileDropdown.scrollHeight + "px";  // Expand the dropdown based on its scrollHeight
+            profileDropdown.style.opacity = '1';       // Fade in
+        }
+    });
+</script>
+<header>
+    <div class="log">fiery<span>.gg</span></div>
+    <nav>
+        <a href="#" class="active">Home</a>
+        <a href="#">Client Secret</a>
+        <img src="https://minotar.net/helm/steve/600.png" alt="Profile Picture" class="profile-pic" id="profile-pic">
+    </nav>
+</header>
+
+<div class="dropdown" id="profile-dropdown">
+    <p id="user-name">Not logged in</p>
+    <a href="account/account.html"><i class='bx bx-log-out'></i> Edit Profile</a>
+    <a href=""><i class='bx bx-help-circle'></i> Settings & Privacy</a>
+    <a href="#"><i class='bx bx-help-circle'></i> Help & Support</a>
+    <a href="#" id="logout-btn"><i class='bx bx-log-out'></i> Log Out</a>
+</div>
+
+<body>
+    <div class="sidebar">
+        <p>MENU</p>
+        <a href="#"><i class='bx bx-home'></i> My Servers</a>
+        <a href="#"><i class='bx bx-cog'></i> Support</a>
+        <a href="#"><i class='bx bx-cog'></i> Panel Settings</a>
+        <!--<p>SERVER SETTINGS</p>
+        <a href="#"><i class='bx bx-home'></i> My Servers</a>
+        <a href="#"><i class='bx bx-cog'></i> Support</a>
+        <a href="#"><i class='bx bx-cog'></i> Panel Settings</a>-->
+        <p>MY PLAN</p>
+        <div class="c1">
+            <div class="plan"><a><i class='bx bxs-diamond'></i> DIAMOND PLAN</a></div>
+        </div>
+
+    </div>
+    <div class="content">
+        <div class="c1">
+            <a href="#">Overview</a>
+            <a href="#">Console</a>
+            <a href="#">Files</a>
+        </div>
+
+        <div class="container">
+            <h1>⚠️ MAINTENANCE MODE ⚠️</h1>
+        </div>
+        <div class="container">
+            <h1>Try clicking on ur profile image then edit profile or logout fr</h1>
+        </div>
+    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+        import { getAuth, updateProfile, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+        import { getFirestore, getDoc, addDoc, doc, updateDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyCiyQyTNa8YT2c123xnBkfEsNPbkyMjCnk",
+            authDomain: "login-page-f3fb2.firebaseapp.com",
+            projectId: "login-page-f3fb2",
+            storageBucket: "login-page-f3fb2.firebasestorage.app",
+            messagingSenderId: "252227398236",
+            appId: "1:252227398236:web:b010ced2be6aea1c4b5499",
+            measurementId: "G-TG796866DR"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        let currentUser = null;
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                currentUser = user
+                const userId = user.uid;
+                const userName = document.getElementById('user-name');
+                userName.textContent = `Welcome, ${user.displayName || user.email}!`;
+                const userDocRef = doc(db, "users", userId);
+                getDoc(userDocRef).then((docSnapshot) => {
+                    if (docSnapshot.exists()) {
+                        const profilePicElement = document.getElementById("profile-pic");
+                        profilePicElement.src = `https://minotar.net/helm/${user.displayName}/600.png`;
+                    }
+                });
+            } else {
+                location.replace("login/index.html")
+            }
+        });
+        document.getElementById('logout-btn').addEventListener('click', logout)
+        function logout() {
+            signOut(auth).then(() => {
+                location.replace("login/index.html")
+            }).catch((error) => {
+                console.error("Logout error:", error.message);
+            });
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -104,13 +104,13 @@
                     }
                 });
             } else {
-                location.replace("login/index.html")
+                location.replace("login")
             }
         });
         document.getElementById('logout-btn').addEventListener('click', logout)
         function logout() {
             signOut(auth).then(() => {
-                location.replace("login/index.html")
+                location.replace("login")
             }).catch((error) => {
                 console.error("Logout error:", error.message);
             });

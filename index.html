@@ -104,13 +104,13 @@
                     }
                 });
             } else {
-                location.replace("login")
+                location.replace("yastube.github.io/login")
             }
         });
         document.getElementById('logout-btn').addEventListener('click', logout)
         function logout() {
             signOut(auth).then(() => {
-                location.replace("login")
+                location.replace("yastube.github.io/login")
             }).catch((error) => {
                 console.error("Logout error:", error.message);
             });

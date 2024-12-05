@@ -1,0 +1,348 @@
+/*@import url("/HelveticaNowText-ExtraBold.ttf.woff"); */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+
+
+
+.sidebar {
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    height: 70%;
+    overflow: auto;
+    background-color: #171925;
+    margin-top: 100px;
+  }
+  
+  .sidebar a {
+    display: flex;
+    color: #575d76;
+    padding: 10px 8px;
+    font-size: 0.9rem;
+    font-weight: 550;
+    transition: 1s;
+
+  }
+
+  .sidebar p {
+    display: flex;
+    color: #6d7592;
+    margin: 20px 0px 10px 5px;
+    font-size: 0.8rem;
+  }
+  a {
+    text-decoration: none;
+
+  }
+  .sidebar i {
+    font-size: 1rem;
+    transform: translateY(1.5px);
+    margin-right: 4px;
+  }
+  
+header {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 1rem;
+    z-index: 1000;
+}
+
+nav {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+p {
+    color: white;
+    font-weight: 500;
+}
+
+.log {
+    display: flex;
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-left: 1rem;
+    font-weight: 700;
+}
+
+
+nav a,
+nav img,
+.log a {
+    color: white;
+    margin-left: 2rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+body {
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    background-color: #171925;
+    overflow-x: hidden;
+}
+
+.dropdown {
+    overflow: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 70px;
+    margin-right: 0.5rem;
+    right: 0;
+    max-height: 0;
+    border-radius: 1rem;
+    width: 180px;
+    transition: 1s;
+    word-wrap: break-word;
+    z-index: 1000;
+}
+
+
+.profile-pic {
+    position: relative;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 10%;
+    width: 50px;
+    cursor: pointer;
+    margin-right: 0px;
+
+}
+
+#profile-dropdown a,
+#profile-dropdown p,
+#profile-dropdown div {
+    display: block;
+    padding: 10px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.content{
+    margin-left: 180px;
+}
+.container {
+    margin-top: 15px;
+    padding: 5px 100px;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 2rem;
+    animation:
+        fadeIn 2s ease;
+
+}
+
+.c1 {
+    margin-top: 15px;
+    display: flex;
+    padding: 5px;
+    border-radius: 1rem;
+
+}
+.c1 a{
+    color: #575d76;
+    margin-left: 25px;
+    padding: 3px 0px;
+    font-size: 0.9rem;
+    font-weight: 550;
+    transition: 0.4s;
+
+}
+.plan a{
+    margin: 0;
+    padding: 5px;
+    color: #868fb4;
+}
+
+a:hover,
+a.active {
+    color: #868fb4;
+
+}
+.container,
+.servercontainer,
+.logincontainer, .c1{
+    background-color: #202332;
+}
+header, .dropdown{
+    background-color: #171925;
+}
+span {
+    color: #3076ff;
+}
+
+.servercontainer {
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+
+}
+
+.logincontainer {
+    overflow: hidden;
+    display: flex;
+    opacity: 0;
+    border-radius: 1rem;
+    text-align: center;
+    width: 650px;
+    justify-content: space-between;
+    animation:
+        fadeIn 2s forwards;
+}
+.picture{
+    background-color: #1e489c46;
+    word-wrap: break-word;
+    width: auto;
+
+
+    
+}
+.picture p{
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #7d85a8;
+}
+
+.content1{
+
+    padding-left: 10px;
+    position: absolute;
+    top: 0;
+    width: 270px;
+    height: 100%;
+    display: flex;
+    word-wrap: break-word;
+    flex-direction: column;
+    align-items: center; /* Yaxis */
+    justify-content: center; /* Xaxis cuss i ekep fucking FORGETTING */
+
+}
+.container1{
+    width: 330px;
+}
+@media(max-width:700px){
+    .content1, .picture, .container1{
+        width: auto;
+    }
+    .content1{
+        display: block;
+    }
+    .picture{
+        height: 250px;
+    }
+    .logincontainer{
+        flex-direction: column;
+        flex-wrap:wrap; 
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.form-row {
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.form-row i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+}
+
+input[type=email],
+input[type=password] {
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 0.9rem 2rem 0.9rem 1rem;
+    border-radius: 1rem;
+    width: 100%;
+    transition: 1s;
+    border: 1px solid rgba(255, 255, 255, 0.274);
+}
+
+input[type=email]:focus,
+input[type=password]:focus {
+    background-color: #ffffff4f;
+    outline: none;
+}
+
+input::placeholder {
+    color: transparent;
+    display: none;
+}
+
+.registerbtn {
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #3076ff;
+    color: white;
+    padding: 17px 1px;
+    margin-bottom: 10px;
+    margin-top: 25px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 1rem;
+    transform: 1s;
+}
+.registerbtn:hover {
+    opacity: 1;
+}
+.form-label {
+    margin-left: 15px;
+    position: absolute;
+    color: rgb(216, 216, 216);
+    bottom: 0.5rem;
+    left: 0;
+    transition: opacity .1s ease-in-out, transform .1s ease-in-out;
+    pointer-events: none;
+}
+
+.form-input:focus~.form-label,
+.form-input:not(:placeholder-shown)~.form-label {
+    opacity: 0;
+    transform: scale(.65) translateY(-1.5rem);
+}
+
+.container1 {
+    padding: 0 20px;
+    box-shadow: -6px 0px 5px rgba(0, 0, 0, 0.438);
+    z-index: 1000;
+}
+.container1 h1{
+    margin-bottom: 1.5rem;
+}
+.w {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}

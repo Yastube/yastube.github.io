@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='../style.css' rel='stylesheet'>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyCiyQyTNa8YT2c123xnBkfEsNPbkyMjCnk",
+            authDomain: "login-page-f3fb2.firebaseapp.com",
+            projectId: "login-page-f3fb2",
+            storageBucket: "login-page-f3fb2.firebasestorage.app",
+            messagingSenderId: "252227398236",
+            appId: "1:252227398236:web:b010ced2be6aea1c4b5499",
+            measurementId: "G-TG796866DR"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        const auth = getAuth(app);
+
+        const submit = document.getElementById('submit');
+        submit.addEventListener("click", function (event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed up
+                    const user = userCredential.user;
+                    window.location.href = "../index.html";
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(errorMessage);
+                });
+        });</script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0px 15px;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        a {
+            color: rgb(231, 230, 230);
+            font-weight: 600;
+            text-decoration: none;
+            transition: 1s;
+        }
+
+        a:hover {
+            color: rgb(255, 255, 255);
+            text-decoration: underline;
+        }
+
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="logincontainer">
+        <div class="picture">
+            <img src="../box-bg3.png" alt="asdad" style="width: 290px; opacity: 0.1; height: 100%; overflow: hidden;">
+            <div class="content1">
+                <h1>fiery<span>.gg</span></h1>
+                <p>Experience top-tier, free Minecraft server hosting since 1902 fr. Trusted by gaymers, we offer
+                    transparent service with no hidden fees for niggers. Log in to manage your server or sign up to start your
+                    adventure! frfr also 90% discount on blackfriday we be sellin niggas
+                </p>
+                <p>Read our User Agreement</p>
+            </div>
+        </div>
+        <div class="container1">
+            <h1><i class='bx bx-log-in'></i> Register</h1>
+            <div class="form-row">
+                <input type="email" placeholder=" " name="email" id="email" class="form-input" required>
+                <i class="bx bxs-user"></i>
+                <label for="email" class="form-label"><b>Email</i></b></label>
+
+            </div>
+            <div class="form-row">
+
+                <input type="password" placeholder=" " name="password" id="password" class="form-input" required>
+                <i class="bx bxs-lock-alt"></i>
+                <label for="password" class="form-label"><b>Password</b></label>
+            </div>
+            <div class="w">
+                frfr
+            </div>
+            <button id="submit" type="submit" class="registerbtn">Register</button>
+            <p>Have an account? <a href="../login/index.html">Login</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

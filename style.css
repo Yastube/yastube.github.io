@@ -245,6 +245,7 @@ span {
     }
     .w{
         margin-top: 0.7rem;
+        font-size: 0.8rem;
     }
 
     .form-row{
@@ -267,6 +268,7 @@ span {
     .logincontainer{
         flex-direction: column;
         flex-wrap:wrap;
+        font-size: 0.8rem;
     }
 
     /* TESST */

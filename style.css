@@ -243,12 +243,38 @@ span {
     .content1{
         display: block;
     }
+    .w{
+        margin-top: 0.7rem;
+    }
+
+    .form-row{
+       font-size: 0.8rem;
+
+    }
+    .registerbtn{
+        margin-bottom: 5px;
+        margin-top: 13px;
+    }
+    .form-row label{
+        transform: translateY(-5px);
+    }
     .picture{
         height: 250px;
     }
+    .picture p{
+        font-size: 0.8rem;
+    }
     .logincontainer{
         flex-direction: column;
-        flex-wrap:wrap; 
+        flex-wrap:wrap;
+    }
+
+    /* TESST */
+    .content{
+        margin: 0;
+    }
+    .sidebar{
+        opacity: 0;
     }
 }
 
